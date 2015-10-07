@@ -217,12 +217,7 @@ void sfw::string::resize(size_t size)
 	m_data[m_size-1] = '\0';
 }
 //set first char to '\0'
-void sfw::string::clear()
-{
-	// TODO:
-	m_data[0] = '\0';
-}
-//T/F if fisrt char is '\0'
+void sfw::string::clear() 
 bool sfw::string::empty() const
 {
 	// TODO:
@@ -244,19 +239,22 @@ const char * sfw::string::cstring() const
 bool sfw::operator<(const string & a, const string & b)
 {
 	// TODO:
-	return false;
+	if (strcmp(a.cstring(), b.cstring()) == -1) { return true; }
+	else { return false; }
 }
 //string | char array
 bool sfw::operator<(const string & a, const char * b)
 {
 	// TODO:
-	return false;
+	if (strcmp(a.cstring(), b) == -1) { return true; }
+	else { return false; }
 }
 //char array | string
 bool sfw::operator<(const char * a, const string & b)
 {
 	// TODO:
-	return false;
+	if (strcmp(a, b.cstring()) == -1) { return true; }
+	else { return false; }
 }
 
 //true if <= alphabetical-ascending
@@ -264,18 +262,21 @@ bool sfw::operator<(const char * a, const string & b)
 bool sfw::operator<=(const string & a, const string & b)
 {
 	// TODO:
-	return false;
+	if (a < b || a == b) { return true; }
+	else { return false; }
 }
 //string | char array
 bool sfw::operator<=(const string & a, const char * b)
 {
 	// TODO:
-	return false;
+	if (a < b || a == b) { return true; }
+	else { return false; }
 }
 bool sfw::operator<=(const char * a, const string & b)
 {
 	// TODO:
-	return false;
+	if (a < b || a == b) { return true; }
+	else { return false; }
 }
 
 //true if > alphabetical-descending \\
@@ -283,19 +284,22 @@ bool sfw::operator<=(const char * a, const string & b)
 bool sfw::operator>(const string & a, const string & b)
 {
 	// TODO:
-	return false;
+	if (strcmp(a.cstring(), b.cstring()) == 1) { return true; }
+	else { return false; }
 }
 //string | char array
 bool sfw::operator>(const string & a, const char * b)
 {
 	// TODO:
-	return false;
+	if (strcmp(a.cstring(), b) == 1) { return true; }
+	else { return false; }
 }
 //char array | string
 bool sfw::operator>(const char * a, const string & b)
 {
 	// TODO:
-	return false;
+	if (strcmp(a, b.cstring()) == 1) { return true; }
+	else { return false; }
 }
 
 //true if >= alphabetical-ascending \\
@@ -303,19 +307,22 @@ bool sfw::operator>(const char * a, const string & b)
 bool sfw::operator>=(const string & a, const string & b)
 {
 	// TODO:
-	return false;
+	if (a > b || a == b) { return true; }
+	else { return false; }
 }
 //string | char array
 bool sfw::operator>=(const string & a, const char * b)
 {
 	// TODO:
-	return false;
+	if (a > b || a == b) { return true; }
+	else { return false; }
 }
 //char array | string
 bool sfw::operator>=(const char * a, const string & b)
 {
 	// TODO:
-	return false;
+	if (a > b || a == b) { return true; }
+	else { return false; }
 }
 
 //true if != equal \\
@@ -323,19 +330,22 @@ bool sfw::operator>=(const char * a, const string & b)
 bool sfw::operator!=(const string & a, const string & b)
 {
 	// TODO:
-	return false;
+	if (!(a == b)) { return true; }
+	else { return false; }
 }
 //string | char array
 bool sfw::operator!=(const string & a, const char * b)
 {
 	// TODO:
-	return false;
+	if (!(a == b)) { return true; }
+	else { return false; }
 }
 //char array | string
 bool sfw::operator!=(const char * a, const string & b)
 {
 	// TODO:
-	return false;
+	if (!(a == b)) { return true; }
+	else { return false; }
 }
 
 //true if equal \\
@@ -343,19 +353,22 @@ bool sfw::operator!=(const char * a, const string & b)
 bool sfw::operator==(const string & a, const string & b)
 {
 	// TODO:
-	return false;
+	if (strcmp(a.cstring(), b.cstring()) == 0) { return true; }
+	else { return false; }
 }
 //string | char array
 bool sfw::operator==(const string & a, const char * b)
 {
 	// TODO:
-	return false;
+	if (strcmp(a.cstring(), b) == 0) { return true; }
+	else { return false; }
 }
 //char array | string
 bool sfw::operator==(const char * a, const string & b)
 {
 	// TODO:
-	return false;
+	if (strcmp(a, b.cstring()) == 0) { return true; }
+	else { return false; }
 }
 
 
@@ -364,32 +377,44 @@ bool sfw::operator==(const char * a, const string & b)
 sfw::string sfw::operator+(const string & a, const string & b)
 {
 	// TODO:
-	return string();
+	sfw::string temp(a);
+	temp += b;
+	return temp;
 }
 //add a string and a char array
 sfw::string sfw::operator+(const string & a, const char * b)
 {
 	// TODO:
-	return string();
+	sfw::string temp(a);
+	temp += b;
+	return temp;
 }
 //add a char array and a string
 sfw::string sfw::operator+(const char * a, const string & b)
 {
 	// TODO:
-	return string();
+	sfw::string temp(a);
+	temp += b;
+	return temp;
 }
 
 //add a string and a char
 sfw::string sfw::operator+(const string & a, char b)
 {
 	// TODO:
-	return string();
+	sfw::string temp(a);
+	temp += b;
+	return temp;
 }
 //add a char and a string
 sfw::string sfw::operator+(char a, const string & b)
 {
 	// TODO:
-	return string();
+	sfw::string temp(2);
+	temp[0] = a;
+	temp[1] = '\0';
+	temp += b;
+	return temp;
 }
 
 
