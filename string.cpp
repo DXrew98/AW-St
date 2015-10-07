@@ -37,7 +37,8 @@ sfw::string::string(const char * a, size_t size)
 	resize(m_size);
 	int copyAmount = strlen(a);
 	if (m_size < copyAmount) { copyAmount = m_size; }
-	strncpy_s(m_data, copyAmount, a, copyAmount - 1);
+	strncpy_s(m_data, m_size, a, _TRUNCATE);
+	m_data[m_size - 1] = '\0';
 }
 
 
@@ -168,11 +169,9 @@ sfw::string & sfw::string::operator+=(const char * a)
 sfw::string & sfw::string::operator+=(const string & a)
 {
 	// TODO:
-	if (a != nullptr)
-	{
-		resize(length() + a.length() + 1);
-		strcat_s(m_data, m_size, a.m_data);
-	}
+	resize(length() + a.length() + 1);
+	strcat_s(m_data, m_size, a.m_data);
+	
 	return *this;
 }
 //add char
@@ -217,7 +216,11 @@ void sfw::string::resize(size_t size)
 	m_data[m_size-1] = '\0';
 }
 //set first char to '\0'
-void sfw::string::clear() 
+void sfw::string::clear()
+{
+	m_data[0] = '\0';
+}
+
 bool sfw::string::empty() const
 {
 	// TODO:

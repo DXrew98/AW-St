@@ -235,7 +235,13 @@ void TEST_ALL_STRING_STUFF()
 		//assign
 		{
 			assert((string() += "Dinosaur") == "Dinosaur");
-			assert((string() += string()) == string());
+
+			string aad;
+			string bad;
+			string cad;
+			aad += bad;
+
+			assert( aad == cad);
 			string b("woo");
 			assert((b += "psies"_sfw) == "woopsies"_sfw);
 		}
