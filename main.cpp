@@ -262,7 +262,7 @@ void TEST_ALL_STRING_STUFF()
 	{
 		//subcript
 		{
-			assert("blah"_sfw[2] == 'l');
+			assert("blah"_sfw[1] == 'l');
 			string b("hmmh");
 			b[2] = 'p';
 			assert(b == "hmph");
@@ -281,7 +281,7 @@ void TEST_ALL_STRING_STUFF()
 		{
 			assert(strlen("blah"_sfw.cstring()) == 4);
 			string d("ddd");
-			assert(d == "dfd");
+			assert(d != "dfd");
 		}
 		mem_test_check();
 		//empty
