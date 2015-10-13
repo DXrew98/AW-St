@@ -1,12 +1,21 @@
+/*************************************************
+String Test (ie. string.h)
+
+This is a near feature complete tring class
+which allows the user to easily manipulate and
+take advatange of strings in their code.
+
+Esmeralda Salamone, esmes@aie.edu.au, 9/23/2015
+Modified: Andrew C Ward, drewwardgov@gmail.com,
+Last Edit: Oct 12 2015
+
+All rights reserved.
+***************************************************/
 
 #include "string.h"
 #include <iostream>
 #include <cstring>
 #include <climits>
-
-
-// A few freebies to get past the first couple of tests.
-// These may need to be modified!
 
 //Set defaults
 sfw::string::string(void) { m_data = new char[m_size = 1]{ '\0' }; } //g

@@ -1,18 +1,16 @@
-/*******************
-Refer to string.h for instructions
+/*************************************************
+String Test (ie. string.h)
 
-Your string class should make it through this
-guantlet without an assertion failing.
+This is a near feature complete tring class
+which allows the user to easily manipulate and
+take advatange of strings in their code.
 
-If it succeeds, then everything is awesome!
-If you are stumped on a particular test,
-or there is an unusual looking test you can't seem to get past,
-you may comment it out, temporarily, to check further tests.
+Esmeralda Salamone, esmes@aie.edu.au, 9/23/2015
+Modified: Andrew C Ward, drewwardgov@gmail.com,
+Last Edit: Oct 12 2015
 
-e-mail terry and I if you have any further questions or trouble.
-esmes@aie.edu.au, Esmeralda Salamone
-terryn@aie.edu.au, Terry Nguyen
-********************/
+All rights reserved.
+***************************************************/
 
 #define _CRTDBG_MAP_ALLOC
 #include <cassert>
